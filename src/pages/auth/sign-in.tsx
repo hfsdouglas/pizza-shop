@@ -7,6 +7,8 @@ import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useMutation } from "@tanstack/react-query";
+import { signIn } from "@/api/sign-in";
 
 const SignInFormSchema = z.object({
   email: z.string().email(),
@@ -21,9 +23,13 @@ export function SignIn() {
     formState: { isSubmitting },
   } = useForm<SignInForm>();
 
+  const { mutateAsync: authenticate } = useMutation({
+    mutationFn: signIn,
+  });
+
   async function handleSignIn(data: SignInForm) {
     try {
-      console.log(data);
+      await authenticate(data);
       toast.success("Enviamos um link de autenticação para seu e-mail.");
     } catch (error) {
       toast.error("Ocorreu um erro ao tentar realizar o login.");
