@@ -26,6 +26,9 @@
       },
       "complexity": {
         "useLiteralKeys": "off"
+      },
+      "suspicious": {
+        "noArrayIndexKey": "off"
       }
     }
   },
