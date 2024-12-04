@@ -26,7 +26,8 @@
         "useNumberNamespace": "off"
       },
       "complexity": {
-        "useLiteralKeys": "off"
+        "useLiteralKeys": "off",
+        "noForEach": "off"
       },
       "suspicious": {
         "noArrayIndexKey": "off"
