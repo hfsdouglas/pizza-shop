@@ -38,6 +38,7 @@ export function RevenueChart() {
         to: dateRange?.to,
       }),
     queryKey: ["metrics", "daily-revenue-in-period"],
+    refetchInterval: 1000,
   });
 
   const chartData = useMemo(() => {
