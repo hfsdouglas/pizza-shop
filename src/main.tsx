@@ -4,9 +4,12 @@ import { createRoot } from "react-dom/client";
 import { App } from "./app.tsx";
 
 import "./globals.css";
+import { enableMSW } from "./api/mocks/index.ts";
 
-createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>
-);
+enableMSW().then(() => {
+  createRoot(document.getElementById("root")!).render(
+    <StrictMode>
+      <App />
+    </StrictMode>
+  );
+})
